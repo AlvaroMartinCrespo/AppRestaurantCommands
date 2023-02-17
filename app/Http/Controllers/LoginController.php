@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
 
+    //Vistas
     public function inicioPage()
     {
         return view('pagina/home');
@@ -27,8 +28,21 @@ class LoginController extends Controller
     }
 
 
+    //Form
     public function login(Request $request)
     {
+        //Se validarían los datos que entran aqui.
+        $credenciales = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+
+        if (Auth::attempt($credenciales)) {
+            $request->session()->regenerate();
+            return redirect()->intended(route('inicio'));
+        } else {
+            return redirect(route('login'));
+        }
     }
 
     public function register(Request $request)
@@ -44,10 +58,14 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('privada'));
+        return redirect(route('inicio'));
     }
 
     public function logout(Request $request)
     {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect(route('login'));
     }
 }

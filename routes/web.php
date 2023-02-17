@@ -23,15 +23,14 @@ Route::get('/', HomeController::class);
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'loginPage')->name('login');
     Route::get('/register', 'registerPage')->name('register');
-    Route::get('/inicio', 'inicioPage')->name('inicio');
+    Route::get('/inicio', 'inicioPage')->middleware('auth')->name('inicio');
+    Route::post('/validar-registro', 'register')->name('validar-registro');
+    Route::post('/inicia-sesion', 'login')->name('inicia-sesion');
+    Route::post('/logout', 'logout')->name('logout');
 });
 
-//Paginas de registro, login y privada
-// Route::view('/login', 'login')->name('login');
-// Route::view('/registro', 'register')->name('registro');
-// Route::view('/privada', 'secret')->name('privada');
 
 //Validación de login, registro y log out para salir de la cuenta
-Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
-Route::post('/inicia-sesion', [LoginController::class, 'login'])->name('inicia-sesion');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+// Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
+// Route::post('/inicia-sesion', [LoginController::class, 'login'])->name('inicia-sesion');
+// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

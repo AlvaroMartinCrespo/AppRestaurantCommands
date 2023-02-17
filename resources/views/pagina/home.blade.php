@@ -21,6 +21,14 @@
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button class="text-white" type="submit">LogOut</button>
+                        </form>
+                        
+                        
+                    </div>
 
                 </div>
             </div>
