@@ -8,7 +8,7 @@
         <div>
             <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
         </div>
-        <div class=" mb-5 text-xl mt-5">Inicio de Sesión</div>
+        <h1 class=" mb-5 text-xl mt-5">Inicio de Sesión</h1>
         <div class=" flex flex-col justify-center">
             <form class="flex flex-col" action="{{route('inicia-sesion')}}" method="POST">
                 @csrf
