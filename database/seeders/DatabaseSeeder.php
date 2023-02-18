@@ -3,8 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Comida;
 use Illuminate\Database\Seeder;
 use App\Models\TipoComida;
+use GuzzleHttp\Promise\Create;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(5)->create();
+        Comida::factory(15)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

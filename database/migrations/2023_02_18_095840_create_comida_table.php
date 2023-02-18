@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->integer('precio');
             $table->text('descripcion');
-            $table->string('ruta_imagen');
+            $table->string('ruta_imagen')->nullable();
         });
     }
 
