@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\TipoComida;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +15,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(5)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        //Creación del tipo de comida
+        $tipoComida1 = new TipoComida();
+        $tipoComida1->nombre = 'Entrantes.';
+        $tipoComida1->descripcion = 'Platos que se sirven al inicio de la comida.';
+        $tipoComida1->save();
+        $tipoComida2 = new TipoComida();
+        $tipoComida2->nombre = 'Primer Plato.';
+        $tipoComida2->descripcion = 'Platos que se sirven después de los entrantes.';
+        $tipoComida2->save();
+        $tipoComida3 = new TipoComida();
+        $tipoComida3->nombre = 'Segundo Plato.';
+        $tipoComida3->descripcion = 'Platos que se sirven después del primer plato.';
+        $tipoComida3->save();
+        $tipoComida4 = new TipoComida();
+        $tipoComida4->nombre = 'Postres.';
+        $tipoComida4->descripcion = 'Platos dulces que se sirven al final de la comida.';
+        $tipoComida4->save();
     }
 }
