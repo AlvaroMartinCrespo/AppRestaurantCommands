@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PaginaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,11 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/validar-registro', 'register')->name('validar-registro');
     Route::post('/inicia-sesion', 'login')->name('inicia-sesion');
     Route::post('/logout', 'logout')->name('logout');
+});
+
+Route::controller(PaginaController::class)->group(function () {
+    Route::get('quienesSomos', 'quienesSomosPage')->name('quienesSomos');
+    Route::get('home', 'homePage')->name('home');
 });
 
 

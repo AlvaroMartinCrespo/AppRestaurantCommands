@@ -8,7 +8,7 @@
             <div class="mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center">
-                        <div class="flex-shrink-0">     
+                        <div class="flex-shrink-0">
                             <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
                         </div>
                         <div class="md:block">
@@ -23,31 +23,22 @@
                     <div>
                         <form action="{{route('logout')}}" method="POST">
                             @csrf
-                                <div class="relative inline-block">
-                                    <button type="button" class="focus:outline-none">
-                                        <div class="inline-flex items-center">
-                                        <img class="w-10 h-10 rounded-full" src="ruta-de-la-imagen" alt="Avatar" />
-                                        </div>
-                                    </button>
-                                    <div class=" flex justify-center items-center flex-col hidden absolute z-50 top-5 right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
-                                        <span class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">
-                                          @if (auth()->check())
-                                           <p>{{auth()->user()->name}}</p>
-                                          @endif
-                                        </span>
-                                        <button type="submit" class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">Cerrar sesión</a>
-                                    </div>
-                                </div>
+                            <button class="text-white" type="submit">LogOut</button>
                         </form>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </nav>
 
         <div>    
-            <h1>Pagina principal</h1>
+            <h1>Quienes somos</h1>
             <h2>
-
+                @if (auth()->check())
+                    <p>{{auth()->user()->name}}</p>
+                    <p>{{auth()->user()->email}}</p>
+                @else
+                    <p>No hay usuario logeado</p>
+                @endif
             </h2>
         </div>
 
