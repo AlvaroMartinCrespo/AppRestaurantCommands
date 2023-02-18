@@ -24,18 +24,18 @@
                         <form action="{{route('logout')}}" method="POST">
                             @csrf
                                 <div class="relative inline-block">
-                                    <button type="button" class="focus:outline-none">
+                                    <button id="buttonPerfil" type="button" class="focus:outline-none">
                                         <div class="inline-flex items-center">
                                         <img class="w-10 h-10 rounded-full" src="ruta-de-la-imagen" alt="Avatar" />
                                         </div>
                                     </button>
-                                    <div class=" flex justify-center items-center flex-col hidden absolute z-50 top-5 right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
+                                    <div id="divPerfil" class=" flex justify-center items-center flex-col hidden absolute z-50 top-7 right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
                                         <span class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">
                                           @if (auth()->check())
                                            <p>{{auth()->user()->name}}</p>
                                           @endif
                                         </span>
-                                        <button type="submit" class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">Cerrar sesión</a>
+                                        <button id="logOut" type="submit" class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">Cerrar sesión</a>
                                     </div>
                                 </div>
                         </form>

@@ -11,17 +11,46 @@
     @yield('content')
 </body>
 <script>
-    const button = document.querySelector("button");
-    const popup = document.querySelector(".absolute");
 
-    // Mostrar la ventana emergente al hacer hover sobre el botón
-    button.addEventListener("click", () => {
-        popup.classList.remove("hidden");
-    });
+    listerners();
 
-    // Ocultar la ventana emergente al sacar el cursor del botón
-    button.addEventListener("blur", () => {
-        popup.classList.add("hidden");
-    });
+    function listerners(){
+ 
+        const button = document.querySelector("button");
+        const popup = document.querySelector("#divPerfil");
+        const body = document.querySelector('body')
+
+        // Mostrar la ventana emergente al hacer hover sobre el botón
+        button.addEventListener("click", mostrarPerfil, false);
+
+        // Ocultar la ventana emergente al sacar el cursor del botón
+        body.addEventListener("click", ocultarPerfil, true);
+
+
+    }
+
+
+
+    //Funciones para controlar que aparezca y desaparezca la ventana flotando de perfil
+
+    /**
+     * Se le elimina la clase hidden por lo tanto aparece.
+    */
+    function mostrarPerfil(){
+        const popup = document.querySelector("#divPerfil");
+        popup.classList.remove('hidden');
+    }
+
+    /**
+     * Se le añade al popup la clase hidden por lo tanto desaparece
+    */
+    function ocultarPerfil(e){
+        const popup = document.querySelector("#divPerfil");
+        if(e.target.id !== 'buttonPerfil'){
+            popup.classList.add('hidden');
+        }
+    }
+
+
 </script>
 </html>
