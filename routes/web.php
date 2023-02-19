@@ -41,6 +41,7 @@ Route::controller(PaginaController::class)->group(function () {
 
 Route::controller(ComidaController::class)->group(function () {
     Route::get('crearComida', 'crearComida')->name('crearComida');
+    Route::get('eliminarComida/', 'eliminarComida')->name('eliminarComida');
 });
 
 

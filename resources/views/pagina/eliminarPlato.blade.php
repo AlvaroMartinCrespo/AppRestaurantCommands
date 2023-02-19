@@ -16,8 +16,42 @@
 
         <div class="flex justify-center flex-col items-center mt-5">
             <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Eston son los platos que tenemos:</h1>
-            Aqui mostramos todos los platos ordenados por tipos.
         </div>
+
+        <div class="grid grid-cols-3 gap-10 w-screen justify-items-center items-center mt-11">
+
+        @foreach ($comidas as $comida)
+            <form action="{{route('eliminarComida')}}" method="get">
+                <input type="hidden" name="id" value="{{$comida->id}}">
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg" src="{{asset('images/noPhoto.webp')}}" alt="" />
+            </a>
+            <div class="p-5">
+                <span>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {{$comida->nombre}}
+                </h5>
+                </span>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{$comida->descripcion}}    
+                </p>
+                <div class="flex gap-2 items-center">
+                    <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$comida->precio}} €</span>
+                    <button
+                    type="submit"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                    Eliminar
+                </button>
+                </div>
+            </div>
+            </div>
+        </form>
+        @endforeach
+
+        </div>
+
 
 
 

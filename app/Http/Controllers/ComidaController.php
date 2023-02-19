@@ -18,6 +18,15 @@ class ComidaController extends Controller
         $comida->save();
     }
 
+    public function eliminarComida()
+    {
+        $idPlato = $_REQUEST['id'];
+        // print_r($idPlato);
+        $plato = Comida::find($idPlato);
+        $plato->delete();
+        return redirect(route('eliminarPlato'));
+    }
+
     public function obtenerComida()
     {
         return Comida::all();

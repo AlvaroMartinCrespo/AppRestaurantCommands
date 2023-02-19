@@ -23,25 +23,25 @@
                 <label class="block text-gray-700 font-medium mb-2" for="nombre">
                     Nombre del plato
                 </label>
-                <input class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" id="nombre" name="nombre" type="text" placeholder="Ejemplo: Hamburguesa con queso">
+                <input class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" id="nombre" name="nombre" type="text" placeholder="Ejemplo: Hamburguesa con queso" required>
                 </div>
                 <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2" for="imagen">
                     URL de la imagen
                 </label>
-                <input class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" id="imagen" name="imagen" type="url" placeholder="Ejemplo: https://ejemplo.com/imagen.jpg">
+                <input class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" id="imagen" name="imagen" type="text" placeholder="Ejemplo: https://ejemplo.com/imagen.jpg" required>
                 </div>
                 <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2" for="descripcion">
                     Descripción del plato
                 </label>
-                <textarea class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" id="descripcion" name="descripcion" rows="4" placeholder="Ejemplo: Deliciosa hamburguesa con carne de res, queso cheddar y verduras frescas"></textarea>
+                <textarea class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" id="descripcion" name="descripcion" rows="4" placeholder="Ejemplo: Deliciosa hamburguesa con carne de res, queso cheddar y verduras frescas" required></textarea>
                 </div>
                 <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2" for="precio">
                     Precio del plato
                 </label>
-                <input class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" id="precio" name="precio" type="number" step="0.01" placeholder="Ejemplo: 10.99">
+                <input class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" id="precio" name="precio" type="number" step="0.01" placeholder="Ejemplo: 10.99" required>
                 </div>
                 <div class="text-center">
                 <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md" type="submit">Añadir plato</button>

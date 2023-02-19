@@ -27,7 +27,9 @@ class PaginaController extends Controller
 
     public function eliminarPlato()
     {
-        return view('pagina/eliminarPlato');
+        $controllerComida = new ComidaController;
+        $comidas = $controllerComida->obtenerComida();
+        return view('pagina/eliminarPlato', compact(['comidas']));
     }
 
     public function comandas()
