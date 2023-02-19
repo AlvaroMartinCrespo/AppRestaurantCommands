@@ -19,4 +19,19 @@ class PaginaController extends Controller
         $comidas = $controllerComida->obtenerComida();
         return view('pagina/home', compact(['comidas']));
     }
+
+    public function añadirPlato()
+    {
+        return view('pagina/añadirPlato');
+    }
+
+    public function eliminarPlato()
+    {
+        return view('pagina/eliminarPlato');
+    }
+
+    public function comandas()
+    {
+        return view('pagina/comandas');
+    }
 }

@@ -3,8 +3,8 @@
 @section('contentPage')
 
     <div class="flex justify-center flex-col items-center">
-        <div class=" w-screen h-60 ">    
-            <img class="  object-none w-screen h-60" src="https://s1.1zoom.me/b5353/683/Fast_food_Hamburger_Vegetables_Bottle_530823_1920x1080.jpg" alt="comida">
+        <div class=" w-screen h-60 bg-black">    
+            <img class=" object-none w-screen h-60" src="https://s1.1zoom.me/b5353/683/Fast_food_Hamburger_Vegetables_Bottle_530823_1920x1080.jpg" alt="comida">
         </div>
 
         <div class="bg-gray-300 p-5 w-screen flex justify-center flex-col items-center">

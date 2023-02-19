@@ -14,8 +14,9 @@
                         <div class="md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <a href="{{route('home')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Comandas</a>
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Modificar Carta</a>
+                                <a href="{{route('comandas')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Comandas</a>
+                                <a href="{{route('añadirPlato')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Añadir Platos</a>
+                                <a href="{{route('eliminarPlato')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Eliminar Platos</a>
                                 <a href="{{route('quienesSomos')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Quienes Somos</a>
                             </div>
                         </div>

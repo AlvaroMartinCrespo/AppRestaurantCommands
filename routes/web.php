@@ -33,6 +33,9 @@ Route::controller(LoginController::class)->group(function () {
 Route::controller(PaginaController::class)->group(function () {
     Route::get('quienesSomos', 'quienesSomosPage')->name('quienesSomos');
     Route::get('home', 'homePage')->name('home');
+    Route::get('añadirPlato', 'añadirPlato')->name('añadirPlato');
+    Route::get('eliminarPlato', 'eliminarPlato')->name('eliminarPlato');
+    Route::get('comandas', 'comandas')->name('comandas');
 });
 
 
