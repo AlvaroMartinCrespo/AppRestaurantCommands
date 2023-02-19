@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComidaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -36,6 +37,10 @@ Route::controller(PaginaController::class)->group(function () {
     Route::get('añadirPlato', 'añadirPlato')->name('añadirPlato');
     Route::get('eliminarPlato', 'eliminarPlato')->name('eliminarPlato');
     Route::get('comandas', 'comandas')->name('comandas');
+});
+
+Route::controller(ComidaController::class)->group(function () {
+    Route::get('crearComida', 'crearComida')->name('crearComida');
 });
 
 

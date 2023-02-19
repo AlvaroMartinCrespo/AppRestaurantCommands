@@ -17,7 +17,8 @@
         </div>
         <div class="w-full mx-auto bg-white p-6 rounded-md shadow-md flex flex-col justify-center items-center">
             <h2 class="text-lg font-medium mb-4">Añadir nuevo plato</h2>
-            <form class=" w-2/6">
+            <form action="{{route('crearComida')}}" class=" w-2/6">
+                @csrf
                 <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2" for="nombre">
                     Nombre del plato
