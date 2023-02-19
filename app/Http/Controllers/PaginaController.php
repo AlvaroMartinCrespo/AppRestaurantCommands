@@ -15,30 +15,8 @@ class PaginaController extends Controller
 
     public function homePage()
     {
-
-        $comidas = $this->obtenerComida();
+        $controllerComida = new ComidaController;
+        $comidas = $controllerComida->obtenerComida();
         return view('pagina/home', compact(['comidas']));
-    }
-
-    public function obtenerComida()
-    {
-        return Comida::all();
-    }
-
-    public function obtenerEntrantes()
-    {
-        
-    }
-
-    public function obtenerPrimerPlato()
-    {
-    }
-
-    public function obtenerSegundoPlato()
-    {
-    }
-
-    public function obtenerPostres()
-    {
     }
 }

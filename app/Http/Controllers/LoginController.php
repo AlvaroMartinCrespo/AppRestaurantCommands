@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comida;
 use Illuminate\Http\Request;
 
 use App\Models\User;
@@ -14,7 +15,10 @@ class LoginController extends Controller
     //Vistas
     public function inicioPage()
     {
-        return view('pagina/home');
+        $controllerComida = new ComidaController;
+        $comidas = $controllerComida->obtenerComida();
+
+        return view('pagina/home', compact(['comidas']));
     }
 
     public function loginPage()
