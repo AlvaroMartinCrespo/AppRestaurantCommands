@@ -8,7 +8,10 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 </head>
 <body>
+
     @yield('content')
+
+
 </body>
 <script>
 
@@ -28,8 +31,6 @@
 
 
     }
-
-
 
     //Funciones para controlar que aparezca y desaparezca la ventana flotando de perfil
 
