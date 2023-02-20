@@ -4,6 +4,7 @@ use App\Http\Controllers\ComidaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrdenController;
 use App\Http\Controllers\PaginaController;
 
 /*
@@ -44,8 +45,6 @@ Route::controller(ComidaController::class)->group(function () {
     Route::get('eliminarComida/', 'eliminarComida')->name('eliminarComida');
 });
 
-
-//Validación de login, registro y log out para salir de la cuenta
-// Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
-// Route::post('/inicia-sesion', [LoginController::class, 'login'])->name('inicia-sesion');
-// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::controller(OrdenController::class)->group(function () {
+    Route::get('enviarComanda', 'guardarOrden')->name('enviarComanda');
+});

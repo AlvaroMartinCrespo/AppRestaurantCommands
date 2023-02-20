@@ -19,6 +19,7 @@
 
     function listerners(){
  
+        const carrito = document.querySelector('#carrito');
         const button = document.querySelector("button");
         const popup = document.querySelector("#divPerfil");
         const body = document.querySelector('body')
@@ -29,7 +30,23 @@
         // Ocultar la ventana emergente al sacar el cursor del botón
         body.addEventListener("click", ocultarPerfil, true);
 
+        carrito.addEventListener('click',mostrarCarrito, false);
 
+        body.addEventListener('click',ocultarCarrito, true);
+
+    }
+
+
+    function mostrarCarrito(){
+        const contenidoCarrito = document.querySelector('#contentCarrito');
+        contenidoCarrito.classList.remove('hidden')
+    }
+
+    function ocultarCarrito(e){
+        const contenidoCarrito = document.querySelector("#contentCarrito");
+        if(e.target.id !== 'contentCarrito'){
+            contenidoCarrito.classList.add('hidden');
+        }
     }
 
     //Funciones para controlar que aparezca y desaparezca la ventana flotando de perfil

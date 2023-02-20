@@ -2,6 +2,52 @@
 
 @section('contentPage')
 
+    <div class="fixed bottom-0 right-0 p-4 cursor-pointer">
+            <div>
+                <form action="{{route('enviarComanda')}}">
+                    @csrf
+                    <div id="carrito">
+                        <img class=" w-10" src="{{asset('images/carrito.png')}}" alt="">
+                        <div id='contentCarrito' class=" flex justify-center items-center flex-col hidden absolute z-50 bottom-10 right-20 mt-2 py-2 w-auto bg-white rounded-lg shadow-xl">
+                            <table class="table-auto">
+                                {{-- Se llama a un for y en la vista se le introducen todos los elementos seleccionados que se almacenaran en una tabla --}}
+                                <thead>
+                                <tr>
+                                    <th class="px-4 py-2">Imagen</th>
+                                    <th class="px-4 py-2">Nombre</th>
+                                    <th class="px-4 py-2">Precio</th>
+                                    <th class="px-4 py-2">Cantidad</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="border px-4 py-2">
+                                    <img src="{{asset('images/noPhoto.webp')}}" alt="Producto" class="h-16 w-16 object-cover">
+                                    </td>
+                                    <td class="border px-4 py-2">Nombre del producto</td>
+                                    <td class="border px-4 py-2">$100</td>
+                                    <td class="border px-4 py-2">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="border px-4 py-2">
+                                    <img src="{{asset('images/noPhoto.webp')}}" alt="Producto" class="h-16 w-16 object-cover">
+                                    </td>
+                                    <td class="border px-4 py-2">Nombre del producto</td>
+                                    <td class="border px-4 py-2">$100</td>
+                                    <td class="border px-4 py-2">1</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+                            <div class="flex justify-center items-center p-4 bg-emerald-300 rounded mt-2">
+                                <button>Enviar Comanda</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+
     <div class="flex justify-center flex-col items-center">
         <div class=" w-screen h-60 bg-black">    
             <img class=" object-none w-screen h-60" src="https://s1.1zoom.me/b5353/683/Fast_food_Hamburger_Vegetables_Bottle_530823_1920x1080.jpg" alt="comida">
