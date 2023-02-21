@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comida;
+use App\Models\ComidaTipoComida;
 use Illuminate\Http\Request;
 
 class ComidaController extends Controller
@@ -34,10 +35,10 @@ class ComidaController extends Controller
 
     public function obtenerEntrantes()
     {
-        $entrantes = Comida::table('comida_tipo_comida')
-            ->join('users', 'orders.user_id', '=', 'users.id')
-            ->join('products', 'orders.product_id', '=', 'products.id')
-            ->select('orders.*', 'users.name as user_name', 'products.name as product_name', 'products.price')
+        $entrantes = ComidaTipoComida::table('comida_tipo_comida')
+            ->join('comida', 'comida.id', '=', 'id_comida')
+            ->join('tipo_comida', 'tipo_comida.id', '=', 'id_tipo')
+            ->select('comida.nombre', 'comida.precio', 'comida.descripcion', 'comida.ruta_imagen')
             ->get();
     }
 
