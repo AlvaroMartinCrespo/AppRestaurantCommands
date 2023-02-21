@@ -60,9 +60,9 @@
 
         <div class="grid grid-cols-3 gap-10 m-11">
             @foreach ($comidas as $comida)
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="rounded-t-lg" src="{{asset('images/noPhoto.webp')}}" alt="" />
+            <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a class="w-full" href="#">
+                <img class="rounded-t-lg w-full h-56 object-none" src="{{$comida->ruta_imagen}}" alt="" />
             </a>
             <div class="p-5">
                 <span>

@@ -2,12 +2,20 @@
 
 @section('contentPage')
 
-        <div>    
-            <h1>Aqui se mostraran las ordenes de la tabla ordenes junto con la de la tabla ordenes-comida</h1>
+        <div class="w-screen">
+            <img class=" object-none w-screen h-44" src="https://carbonell-oliveoil.com/themes/user/site/default/asset/img/blog/interior_9.jpg" alt="comida">
+        </div>
+
+        <div class="bg-gray-300 p-5 w-screen flex justify-center flex-col items-center">
+            <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Comandas</h1>
+        </div>
+
+        <div class=" flex justify-center items-center">
+            <button class=" p-4 bg-teal-400 rounded m-5">Limpiar Comandas</button>
         </div>
 
 
-        <div class=" grid grid-cols-3 m-5">
+        <div class=" grid grid-cols-3 m-5 gap-6">
             {{-- for con cada comanda que es como esta --}}
 
 <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg hover:shadow-2xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">
@@ -20,7 +28,7 @@
             <li class="py-3 sm:py-4">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Neil image">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -38,7 +46,7 @@
             <li class="py-3 sm:py-4">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Bonnie image">
                     </div>
                     <div class="flex-1 min-w-0">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -56,7 +64,7 @@
             <li class="py-3 sm:py-4">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-2.jpg" alt="Michael image">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Michael image">
                     </div>
                     <div class="flex-1 min-w-0">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -74,7 +82,7 @@
             <li class="py-3 sm:py-4">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-4.jpg" alt="Lana image">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Lana image">
                     </div>
                     <div class="flex-1 min-w-0">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -92,7 +100,7 @@
             <li class="pt-3 pb-0 sm:pt-4">
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="Thomas image">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Thomas image">
                     </div>
                     <div class="flex-1 min-w-0">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -111,6 +119,307 @@
    </div>
 </div>
 
+<div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg hover:shadow-2xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex items-center justify-between mb-4">
+        <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Mesa 1</h5>
+   </div>
+   <div class="flow-root">
+        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+            {{-- en otro for insertamos cada li --}}
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Neil image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Bonnie image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Michael image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Lana image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="pt-3 pb-0 sm:pt-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Thomas image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+        </ul>
+   </div>
+</div>
+<div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg hover:shadow-2xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex items-center justify-between mb-4">
+        <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Mesa 1</h5>
+   </div>
+   <div class="flow-root">
+        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+            {{-- en otro for insertamos cada li --}}
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Neil image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Bonnie image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Michael image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Lana image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="pt-3 pb-0 sm:pt-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Thomas image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+        </ul>
+   </div>
+</div>
+
+<div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg hover:shadow-2xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex items-center justify-between mb-4">
+        <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Mesa 1</h5>
+   </div>
+   <div class="flow-root">
+        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+            {{-- en otro for insertamos cada li --}}
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Neil image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Bonnie image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Michael image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Lana image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+            <li class="pt-3 pb-0 sm:pt-4">
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" src="{{asset('images/noPhoto.webp')}}" alt="Thomas image">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            Plato 1
+                        </p>
+                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                            descripcion 1
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        $precio
+                    </div>
+                </div>
+            </li>
+        </ul>
+   </div>
+</div>  
 
         </div>
 
