@@ -2,12 +2,12 @@
 
 @section('contentPage')
 
-    <div class="fixed bottom-0 right-0 p-4 cursor-pointer">
+    <div class="fixed bottom-0 right-0 p-4 rounded-full bg-slate-400 m-5">
             <div>
                 <form action="{{route('enviarComanda')}}">
                     @csrf
                     <div id="carrito">
-                        <img class=" w-10" src="{{asset('images/carrito.png')}}" alt="">
+                        <img class=" cursor-pointer w-10" src="{{asset('images/carrito.png')}}" alt="">
                         <div id='contentCarrito' class=" flex justify-center items-center flex-col hidden absolute z-50 bottom-10 right-20 mt-2 py-2 w-auto bg-white rounded-lg shadow-xl">
                             <table class="table-auto">
                                 {{-- Se llama a un for y en la vista se le introducen todos los elementos seleccionados que se almacenaran en una tabla --}}
@@ -17,25 +17,22 @@
                                     <th class="px-4 py-2">Nombre</th>
                                     <th class="px-4 py-2">Precio</th>
                                     <th class="px-4 py-2">Cantidad</th>
+                                    <th class="px-4 py-2">Eliminar</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                    @foreach ($carrito as $item)
+                                                                        <tr>
                                     <td class="border px-4 py-2">
-                                    <img src="{{asset('images/noPhoto.webp')}}" alt="Producto" class="h-16 w-16 object-cover">
+                                    <img src="{{$item->ruta_imagen}}" alt="Producto" class="h-16 w-16 object-cover">
                                     </td>
-                                    <td class="border px-4 py-2">Nombre del producto</td>
-                                    <td class="border px-4 py-2">$100</td>
-                                    <td class="border px-4 py-2">1</td>
+                                    <td class="border px-4 py-2 text-center">{{$item->nombre}}</td>
+                                    <td class="border px-4 py-2 text-center">{{$item->precio}}</td>
+                                    <td class="border px-4 py-2 text-center">{{$item->cantidad}}</td>
+                                    <td class="border px-4 py-2 text-center"><a class="rounded-full bg-slate-600 p-3" href="p-4">X</a></td>
                                 </tr>
-                                <tr>
-                                    <td class="border px-4 py-2">
-                                    <img src="{{asset('images/noPhoto.webp')}}" alt="Producto" class="h-16 w-16 object-cover">
-                                    </td>
-                                    <td class="border px-4 py-2">Nombre del producto</td>
-                                    <td class="border px-4 py-2">$100</td>
-                                    <td class="border px-4 py-2">1</td>
-                                </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                             <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
@@ -76,7 +73,7 @@
                 <div class="flex gap-2 items-center">
                     <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$entrante->precio}} €</span>
                 <a
-                    href="#"
+                    href="{{route('guardaComida', $entrante->id)}}"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                     Añadir
@@ -111,7 +108,7 @@
                 <div class="flex gap-2 items-center">
                     <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$pm->precio}} €</span>
                 <a
-                    href="#"
+                    href="{{route('guardaComida', $entrante->id)}}"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                     Añadir
@@ -146,7 +143,7 @@
                 <div class="flex gap-2 items-center">
                     <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$sp->precio}} €</span>
                 <a
-                    href="#"
+                    href="{{route('guardaComida', $entrante->id)}}"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                     Añadir
@@ -181,7 +178,7 @@
                 <div class="flex gap-2 items-center">
                     <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$p->precio}} €</span>
                 <a
-                    href="#"
+                    href="{{route('guardaComida', $entrante->id)}}"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                     Añadir

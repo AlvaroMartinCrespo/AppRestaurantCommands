@@ -11,6 +11,8 @@ class Carrito extends Model
 
     protected $table = 'carrito';
 
+    public $timestamps = false;
+
     //Atributos de la tabla que se pueden llenar. 
     protected $fillable = [
         'nombre',

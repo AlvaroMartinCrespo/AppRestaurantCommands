@@ -54,6 +54,7 @@ class ComidaController extends Controller
     public function obtenerComidaPorId($id)
     {
         $plato = Comida::find($id);
+        // dd($plato->nombre);
         return $plato;
     }
 }

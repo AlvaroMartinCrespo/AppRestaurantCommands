@@ -23,7 +23,7 @@ use App\Http\Controllers\PaginaController;
 Route::get('/', HomeController::class);
 
 
-
+// Route::get('guardaComida/{id}', [CarritoController::class, 'guardaComida'])->name('guardarCommida');
 Route::controller(CarritoController::class)->group(function () {
     Route::get('guardaComida/{id}', 'insertarComida')->name('guardaComida');
     Route::get('limpiarCarrito', 'enviarComandaYVaciarCarrito')->name('limpiarCarrito');

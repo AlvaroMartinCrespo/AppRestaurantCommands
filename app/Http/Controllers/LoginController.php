@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrito;
 use App\Models\Comida;
 use Illuminate\Http\Request;
 
@@ -20,8 +21,16 @@ class LoginController extends Controller
         $segundoPlato = $controllerComida->obtenerTipoDeComida('Segundo Plato.');
         $primerPlato = $controllerComida->obtenerTipoDeComida('Primer Plato.');
         $postres = $controllerComida->obtenerTipoDeComida('Postres.');
-        // dd($entrantes);
-        return view('pagina/home', compact(['entrantes', 'segundoPlato', 'primerPlato', 'postres']));
+        $carrito = $this->cargarCarrito();
+        return view('pagina/home', compact(['entrantes', 'segundoPlato', 'primerPlato', 'postres', 'carrito']));
+    }
+
+
+    private function cargarCarrito()
+    {
+
+        $carrito = Carrito::all();
+        return $carrito;
     }
 
     public function loginPage()
