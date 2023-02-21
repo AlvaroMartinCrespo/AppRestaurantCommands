@@ -15,7 +15,7 @@
         </div>
 
 
-        <div class=" grid grid-cols-3 m-5 gap-6">
+        <div class=" grid grid-cols-3 m-5 gap-6 justify-items-center">
             {{-- for con cada comanda que es como esta --}}
 
 <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg hover:shadow-2xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">

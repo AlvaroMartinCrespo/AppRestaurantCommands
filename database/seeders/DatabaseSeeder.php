@@ -8,6 +8,7 @@ use App\Models\Comida;
 use App\Models\ComidaTipoComida;
 use Illuminate\Database\Seeder;
 use App\Models\TipoComida;
+use App\Models\User;
 use GuzzleHttp\Promise\Create;
 
 class DatabaseSeeder extends Seeder
@@ -20,12 +21,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(5)->create();
+        //Creacion de comida automatica con factory
         // Comida::factory(15)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
 
         //Creación del tipo de comida
         $this->crearTipoComida();

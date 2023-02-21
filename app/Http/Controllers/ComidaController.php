@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comida;
 use App\Models\ComidaTipoComida;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ComidaController extends Controller
 {
@@ -22,7 +23,6 @@ class ComidaController extends Controller
     public function eliminarComida()
     {
         $idPlato = $_REQUEST['id'];
-        // print_r($idPlato);
         $plato = Comida::find($idPlato);
         $plato->delete();
         return redirect(route('eliminarPlato'));
@@ -33,24 +33,27 @@ class ComidaController extends Controller
         return Comida::all();
     }
 
-    public function obtenerEntrantes()
+    public function obtenerTipoDeComida($tipoPlato)
     {
-        $entrantes = ComidaTipoComida::table('comida_tipo_comida')
-            ->join('comida', 'comida.id', '=', 'id_comida')
-            ->join('tipo_comida', 'tipo_comida.id', '=', 'id_tipo')
-            ->select('comida.nombre', 'comida.precio', 'comida.descripcion', 'comida.ruta_imagen')
+        $comidas = DB::table('comida')
+            ->join('comida_tipo_comida', 'comida.id', '=', 'comida_tipo_comida.id_comida')
+            ->join('tipo_comida', 'tipo_comida.id', '=', 'comida_tipo_comida.id_tipo')
+            ->select('comida.nombre as comida', 'comida.id', 'comida.precio', 'comida.descripcion', 'comida.ruta_imagen', 'tipo_comida.nombre as tipo_comida')
             ->get();
+
+        $comidaSeleccionada = [];
+        foreach ($comidas as $comida) {
+            if ($comida->tipo_comida === $tipoPlato) {
+                array_push($comidaSeleccionada, $comida);
+            }
+        }
+
+        return $comidaSeleccionada;
     }
 
-    public function obtenerPrimerPlato()
+    public function obtenerComidaPorId($id)
     {
-    }
-
-    public function obtenerSegundoPlato()
-    {
-    }
-
-    public function obtenerPostres()
-    {
+        $plato = Comida::find($id);
+        return $plato;
     }
 }

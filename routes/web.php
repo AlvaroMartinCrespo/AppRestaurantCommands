@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ComidaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -22,6 +23,11 @@ use App\Http\Controllers\PaginaController;
 Route::get('/', HomeController::class);
 
 
+
+Route::controller(CarritoController::class)->group(function () {
+    Route::get('guardaComida/{id}', 'insertarComida')->name('guardaComida');
+    Route::get('limpiarCarrito', 'enviarComandaYVaciarCarrito')->name('limpiarCarrito');
+});
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'loginPage')->name('login');

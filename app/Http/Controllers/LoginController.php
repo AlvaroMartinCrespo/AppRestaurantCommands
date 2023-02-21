@@ -16,9 +16,12 @@ class LoginController extends Controller
     public function inicioPage()
     {
         $controllerComida = new ComidaController;
-        $comidas = $controllerComida->obtenerComida();
-
-        return view('pagina/home', compact(['comidas']));
+        $entrantes = $controllerComida->obtenerTipoDeComida('Entrantes.');
+        $segundoPlato = $controllerComida->obtenerTipoDeComida('Segundo Plato.');
+        $primerPlato = $controllerComida->obtenerTipoDeComida('Primer Plato.');
+        $postres = $controllerComida->obtenerTipoDeComida('Postres.');
+        // dd($entrantes);
+        return view('pagina/home', compact(['entrantes', 'segundoPlato', 'primerPlato', 'postres']));
     }
 
     public function loginPage()

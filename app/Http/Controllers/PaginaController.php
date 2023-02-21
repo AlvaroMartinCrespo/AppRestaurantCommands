@@ -16,8 +16,11 @@ class PaginaController extends Controller
     public function homePage()
     {
         $controllerComida = new ComidaController;
-        $comidas = $controllerComida->obtenerComida();
-        return view('pagina/home', compact(['comidas']));
+        $entrantes = $controllerComida->obtenerTipoDeComida('Entrantes.');
+        $segundoPlato = $controllerComida->obtenerTipoDeComida('Segundo Plato.');
+        $primerPlato = $controllerComida->obtenerTipoDeComida('Primer Plato.');
+        $postres = $controllerComida->obtenerTipoDeComida('Postres.');
+        return view('pagina/home', compact(['entrantes', 'segundoPlato', 'primerPlato', 'postres']));
     }
 
     public function añadirPlato()

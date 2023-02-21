@@ -59,24 +59,24 @@
         </div>
 
         <div class="grid grid-cols-3 gap-10 m-11">
-            @foreach ($comidas as $comida)
+            @foreach ($entrantes as $entrante)
             <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a class="w-full" href="#">
-                <img class="rounded-t-lg w-full h-56 object-none" src="{{$comida->ruta_imagen}}" alt="" />
+                <img class="rounded-t-lg w-full h-56 object-none" src="{{$entrante->ruta_imagen}}" alt="" />
             </a>
             <div class="p-5">
                 <span>
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    {{$comida->nombre}}
+                    {{$entrante->comida}}
                 </h5>
                 </span>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {{$comida->descripcion}}
+                {{$entrante->descripcion}}
                 </p>
                 <div class="flex gap-2 items-center">
-                    <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$comida->precio}} €</span>
+                    <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$entrante->precio}} €</span>
                 <a
-                    href="#"
+                    href="{{route('guardaComida')}}"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                     Añadir
@@ -94,22 +94,22 @@
         </div>
 
         <div class="grid grid-cols-3 gap-10 m-11">
-            @foreach ($comidas as $comida)
+            @foreach ($primerPlato as $pm)
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-                <img class="rounded-t-lg" src="{{asset('images/noPhoto.webp')}}" alt="" />
+                <img class="rounded-t-lg w-full h-56 object-none" src="{{$pm->ruta_imagen}}" alt="" />
             </a>
             <div class="p-5">
                 <span>
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    {{$comida->nombre}}
+                    {{$pm->comida}}
                 </h5>
                 </span>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {{$comida->descripcion}}
+                {{$pm->descripcion}}
                 </p>
                 <div class="flex gap-2 items-center">
-                    <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$comida->precio}} €</span>
+                    <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$pm->precio}} €</span>
                 <a
                     href="#"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -129,22 +129,22 @@
         </div>
 
         <div class="grid grid-cols-3 gap-10 m-11">
-            @foreach ($comidas as $comida)
+            @foreach ($segundoPlato as $sp)
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-                <img class="rounded-t-lg" src="{{asset('images/noPhoto.webp')}}" alt="" />
+                <img class="rounded-t-lg w-full h-56 object-none" src="{{$sp->ruta_imagen}}" alt="" />
             </a>
             <div class="p-5">
                 <span>
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    {{$comida->nombre}}
+                    {{$sp->comida}}
                 </h5>
                 </span>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {{$comida->descripcion}}
+                {{$sp->descripcion}}
                 </p>
                 <div class="flex gap-2 items-center">
-                    <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$comida->precio}} €</span>
+                    <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$sp->precio}} €</span>
                 <a
                     href="#"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -164,22 +164,22 @@
         </div>
 
         <div class="grid grid-cols-3 gap-10 m-11">
-            @foreach ($comidas as $comida)
+            @foreach ($postres as $p)
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-                <img class="rounded-t-lg" src="{{asset('images/noPhoto.webp')}}" alt="" />
+                <img class="rounded-t-lg w-full h-56 object-none" src="{{$p->ruta_imagen}}" alt="" />
             </a>
             <div class="p-5">
                 <span>
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    {{$comida->nombre}}
+                    {{$p->comida}}
                 </h5>
                 </span>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {{$comida->descripcion}}
+                {{$p->descripcion}}
                 </p>
                 <div class="flex gap-2 items-center">
-                    <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$comida->precio}} €</span>
+                    <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{$p->precio}} €</span>
                 <a
                     href="#"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
