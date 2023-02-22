@@ -22,12 +22,15 @@ use App\Http\Controllers\PaginaController;
 // Route::get('/', HomeController::class);
 Route::get('/', HomeController::class);
 
-
-// Route::get('guardaComida/{id}', [CarritoController::class, 'guardaComida'])->name('guardarCommida');
-Route::controller(CarritoController::class)->group(function () {
-    Route::get('guardaComida/{id}', 'insertarComida')->name('guardaComida');
-    Route::get('limpiarCarrito', 'enviarComandaYVaciarCarrito')->name('limpiarCarrito');
+Route::controller(OrdenController::class)->group(function () {
+    Route::get('crearOrden/{usuarioId}/{id}', 'crearOrden')->name('crearOrden');
+    Route::get('eliminarComandas', 'eliminarComandas')->name('eliminarComandas');
 });
+
+// Route::controller(CarritoController::class)->group(function () {
+//     Route::get('guardaComida/{usuario}/{id}', 'insertarComida')->name('guardaComida');
+//     Route::get('limpiarCarrito', 'enviarComandaYVaciarCarrito')->name('limpiarCarrito');
+// });
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'loginPage')->name('login');

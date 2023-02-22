@@ -36,6 +36,9 @@
                                            <p>{{auth()->user()->name}}</p>
                                           @endif
                                         </span>
+                                        <span class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">
+                                            <p>Mesa {{auth()->user()->id}}</p>
+                                        </span>
                                         <button id="logOut" type="submit" class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">Cerrar sesión</a>
                                     </div>
                                 </div>
