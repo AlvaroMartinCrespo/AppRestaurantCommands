@@ -2,11 +2,11 @@
 
 @section('contentPage')
 
-        <div class="w-screen">
-            <img class=" object-none w-screen h-44" src="https://carbonell-oliveoil.com/themes/user/site/default/asset/img/blog/interior_9.jpg" alt="comida">
+        <div class="w-full">
+            <img class=" object-none w-full h-44" src="https://carbonell-oliveoil.com/themes/user/site/default/asset/img/blog/interior_9.jpg" alt="comida">
         </div>
 
-        <div class="bg-gray-300 p-5 w-screen flex justify-center flex-col items-center">
+        <div class="bg-gray-300 p-5 w-full flex justify-center flex-col items-center">
             <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Comandas</h1>
         </div>
 
@@ -50,7 +50,7 @@
 
             @endforeach
 
-            <li>
+            <li class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white w-full pt-5 ">
                 Total:
             </li>
 
