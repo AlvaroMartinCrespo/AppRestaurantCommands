@@ -10,6 +10,7 @@ use Illuminate\Database\Seeder;
 use App\Models\TipoComida;
 use App\Models\User;
 use GuzzleHttp\Promise\Create;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,9 +21,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(5)->create();
+        // \App\Models\User::factory(5)->create();
         //Creacion de comida automatica con factory
         // Comida::factory(15)->create();
+
+        $usuarioAdmin = new User();
+        $usuarioAdmin->name = 'admin';
+        $usuarioAdmin->email = 'admin@admin.admin';
+        $usuarioAdmin->email_verified_at = now();
+        $usuarioAdmin->remember_token = Str::random(10);
+        $usuarioAdmin->password = 'admin';
+        $usuarioAdmin->admin = true;
+        $usuarioAdmin->save();
+
+        $usuarioNormal = new User();
+        $usuarioNormal->name = 'usuario';
+        $usuarioNormal->email = 'usuario@usuario.usuario';
+        $usuarioNormal->email_verified_at = now();
+        $usuarioNormal->remember_token = Str::random(10);
+        $usuarioNormal->password = 'usuario';
+        $usuarioNormal->admin = false;
+        $usuarioNormal->save();
 
 
         //Creación del tipo de comida
