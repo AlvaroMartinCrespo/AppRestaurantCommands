@@ -10,6 +10,8 @@ use Illuminate\Database\Seeder;
 use App\Models\TipoComida;
 use App\Models\User;
 use GuzzleHttp\Promise\Create;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,10 +22,36 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(5)->create();
+        // \App\Models\User::factory(5)->create();
         //Creacion de comida automatica con factory
         // Comida::factory(15)->create();
 
+        $usuarioAdmin = new User();
+        $usuarioAdmin->name = 'admin';
+        $usuarioAdmin->email = 'admin@admin.admin';
+        $usuarioAdmin->email_verified_at = now();
+        $usuarioAdmin->remember_token = Str::random(10);
+        $usuarioAdmin->password = Hash::make('admin');
+        $usuarioAdmin->admin = true;
+        $usuarioAdmin->save();
+
+        $usuarioNormal = new User();
+        $usuarioNormal->name = 'usuario';
+        $usuarioNormal->email = 'usuario@usuario.usuario';
+        $usuarioNormal->email_verified_at = now();
+        $usuarioNormal->remember_token = Str::random(10);
+        $usuarioNormal->password = Hash::make('usuario');
+        $usuarioNormal->admin = false;
+        $usuarioNormal->save();
+
+        $usuarioNormal2 = new User();
+        $usuarioNormal2->name = 'usuario2';
+        $usuarioNormal2->email = 'usuario2@usuario.usuario';
+        $usuarioNormal2->email_verified_at = now();
+        $usuarioNormal2->remember_token = Str::random(10);
+        $usuarioNormal2->password = Hash::make('usuario2');
+        $usuarioNormal2->admin = false;
+        $usuarioNormal2->save();
 
         //Creación del tipo de comida
         $this->crearTipoComida();
