@@ -16,6 +16,7 @@ class OrdenComida extends Model
     //Atributos de la tabla que se pueden llenar. 
     protected $fillable = [
         'id_orden',
-        'id_comida'
+        'id_comida',
+
     ];
 }

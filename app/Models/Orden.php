@@ -14,5 +14,7 @@ class Orden extends Model
     //Atributos de la tabla que se pueden llenar. 
     protected $fillable = [
         'user_id',
+        'servida',
+        'confirmada'
     ];
 }

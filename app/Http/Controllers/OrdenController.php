@@ -39,11 +39,11 @@ class OrdenController extends Controller
     {
         $ordenComida = DB::table('orden_comida')
             ->join('orden', 'orden_comida.id_orden', '=', 'orden.id')
-            ->select('orden_comida.*', 'orden.user_id')
+            ->select('orden_comida.*', 'orden.user_id', 'orden.confirmada', 'orden.servida', 'orden.id')
             ->where('orden.user_id', '<>', null)
             ->get();
 
-
+        // dd($ordenComida);
 
         return $ordenComida;
     }
@@ -53,5 +53,13 @@ class OrdenController extends Controller
         OrdenComida::query()->delete();
         Orden::query()->delete();
         return redirect('comandas');
+    }
+
+    public function servir($id)
+    {
+        $orden = Orden::find($id);
+        // dd($orden);
+        $orden->update(['servida' => 1]);
+        return redirect(route('comandas'));
     }
 }

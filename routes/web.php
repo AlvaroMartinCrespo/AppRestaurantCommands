@@ -25,6 +25,7 @@ Route::get('/', HomeController::class);
 Route::controller(OrdenController::class)->group(function () {
     Route::get('crearOrden/{usuarioId}/{id}', 'crearOrden')->name('crearOrden');
     Route::get('eliminarComandas', 'eliminarComandas')->name('eliminarComandas');
+    Route::get('servir/{id}', 'servir')->name('servir');
 });
 
 // Route::controller(CarritoController::class)->group(function () {
