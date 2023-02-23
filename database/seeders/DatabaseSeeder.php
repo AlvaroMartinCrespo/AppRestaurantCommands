@@ -11,6 +11,7 @@ use App\Models\TipoComida;
 use App\Models\User;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,7 +31,7 @@ class DatabaseSeeder extends Seeder
         $usuarioAdmin->email = 'admin@admin.admin';
         $usuarioAdmin->email_verified_at = now();
         $usuarioAdmin->remember_token = Str::random(10);
-        $usuarioAdmin->password = 'admin';
+        $usuarioAdmin->password = Hash::make('admin');
         $usuarioAdmin->admin = true;
         $usuarioAdmin->save();
 
@@ -39,7 +40,7 @@ class DatabaseSeeder extends Seeder
         $usuarioNormal->email = 'usuario@usuario.usuario';
         $usuarioNormal->email_verified_at = now();
         $usuarioNormal->remember_token = Str::random(10);
-        $usuarioNormal->password = 'usuario';
+        $usuarioNormal->password = Hash::make('usuario');
         $usuarioNormal->admin = false;
         $usuarioNormal->save();
 
