@@ -12,9 +12,17 @@
 
     <div class="w-full flex justify-center items-center flex-col">
 
-        <div class=" w-75 rounded border flex justify-center items-center m-5">
+        {{-- <div class=" w-75 rounded border flex justify-center items-center m-5">
             <img class=" h-16 " src="{{asset('images/noPhoto.webp')}}" alt="">
             <p>Descripcion</p>
+        </div> --}}
+
+        <div class=" w-4/6 rounded border flex justify-center items-center m-5">
+            <img class="h-80" src="{{asset('images/piña.jpg')}}" alt="">
+            <p class="p-5">
+                Nuestros clientes pueden disfrutar de la experiencia única de escuchar música en vivo durante su visita, interpretada por el reconocido cantante Quevedo. Esta prestación de música en vivo añade un valor adicional a la calidad del servicio que ofrecemos, al proporcionar a nuestros clientes un mayor confort y una experiencia más memorable.
+            </p>
+            
         </div>
 
         <div class="w-full flex justify-center">
