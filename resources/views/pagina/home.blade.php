@@ -16,11 +16,11 @@
                                     <th class="px-4 py-2">Imagen</th>
                                     <th class="px-4 py-2">Nombre</th>
                                     <th class="px-4 py-2">Precio</th>
-                                    <th class="px-4 py-2">Cantidad</th>
                                     <th class="px-4 py-2">Eliminar</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                    {{-- Este for es de la comanda solamente del usuario que esta actualmente registrado --}}
                                     @foreach ($carrito as $item)
                                                                         <tr>
                                     <td class="border px-4 py-2">
@@ -28,7 +28,6 @@
                                     </td>
                                     <td class="border px-4 py-2 text-center">{{$item->nombre}}</td>
                                     <td class="border px-4 py-2 text-center">{{$item->precio}}</td>
-                                    <td class="border px-4 py-2 text-center">{{$item->cantidad}}</td>
                                     <td class="border px-4 py-2 text-center"><a class="rounded-full bg-slate-600 p-3" href="p-4">X</a></td>
                                 </tr>
                                     @endforeach

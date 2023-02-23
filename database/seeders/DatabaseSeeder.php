@@ -44,6 +44,14 @@ class DatabaseSeeder extends Seeder
         $usuarioNormal->admin = false;
         $usuarioNormal->save();
 
+        $usuarioNormal2 = new User();
+        $usuarioNormal2->name = 'usuario2';
+        $usuarioNormal2->email = 'usuario2@usuario.usuario';
+        $usuarioNormal2->email_verified_at = now();
+        $usuarioNormal2->remember_token = Str::random(10);
+        $usuarioNormal2->password = Hash::make('usuario2');
+        $usuarioNormal2->admin = false;
+        $usuarioNormal2->save();
 
         //Creación del tipo de comida
         $this->crearTipoComida();
