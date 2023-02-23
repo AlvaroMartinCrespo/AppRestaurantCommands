@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('orden', function (Blueprint $table) {
             $table->id();
+            $table->boolean('confirmada')->default(false);
+            $table->boolean('servida')->default(false);
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
