@@ -106,13 +106,20 @@ class PaginaController extends Controller
                 $comidasPorMesa[$mesa] = array();
             }
 
+
             // Agregar la comida al array correspondiente a la mesa
             array_push($comidasPorMesa[$mesa], $datosComida);
         }
         // dd(count($comidasPorMesa));
-        if (count($comidasPorMesa) < $idUsuario || count($comidasPorMesa) !== 0) {
-            return null;
+        if (auth()->user()->admin) {
+            if (count($comidasPorMesa) < $idUsuario || count($comidasPorMesa) !== 0) {
+                return null;
+            } else {
+                return
+                    $comidasPorMesa[$idUsuario];
+            }
         } else {
+
             return
                 $comidasPorMesa[$idUsuario];
         }
