@@ -21,17 +21,9 @@ class LoginController extends Controller
         $segundoPlato = $controllerComida->obtenerTipoDeComida('Segundo Plato.');
         $primerPlato = $controllerComida->obtenerTipoDeComida('Primer Plato.');
         $postres = $controllerComida->obtenerTipoDeComida('Postres.');
-        $carrito = $this->cargarCarrito();
-        return view('pagina/home', compact(['entrantes', 'segundoPlato', 'primerPlato', 'postres', 'carrito']));
+        return view('pagina/home', compact(['entrantes', 'segundoPlato', 'primerPlato', 'postres']));
     }
 
-
-    private function cargarCarrito()
-    {
-
-        $carrito = Carrito::all();
-        return $carrito;
-    }
 
     public function loginPage()
     {

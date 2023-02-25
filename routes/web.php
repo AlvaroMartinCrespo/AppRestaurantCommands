@@ -26,12 +26,9 @@ Route::controller(OrdenController::class)->group(function () {
     Route::get('crearOrden/{usuarioId}/{id}', 'crearOrden')->name('crearOrden');
     Route::get('eliminarComandas', 'eliminarComandas')->name('eliminarComandas');
     Route::get('servir/{id}', 'servir')->name('servir');
+    Route::get('enviarOrden/{id}', 'enviar')->name(('enviarOrden'));
+    Route::get('eliminarPlatoComanda/{idComanda}/{idPlato}', 'eliminarPlato')->name('eliminarPlatoComanda');
 });
-
-// Route::controller(CarritoController::class)->group(function () {
-//     Route::get('guardaComida/{usuario}/{id}', 'insertarComida')->name('guardaComida');
-//     Route::get('limpiarCarrito', 'enviarComandaYVaciarCarrito')->name('limpiarCarrito');
-// });
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'loginPage')->name('login');

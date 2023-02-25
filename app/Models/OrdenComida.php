@@ -17,6 +17,5 @@ class OrdenComida extends Model
     protected $fillable = [
         'id_orden',
         'id_comida',
-
     ];
 }

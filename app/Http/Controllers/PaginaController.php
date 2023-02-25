@@ -93,11 +93,13 @@ class PaginaController extends Controller
             // dd($comida);
 
             $comidaArray = [
+                'id' => $datosComida->id,
                 'nombre' => $datosComida->nombre,
                 'precio' => $datosComida->precio,
                 'imagen' => $datosComida->ruta_imagen,
                 'servida' => $dato->servida,
-                'confirmada' => $dato->confirmada
+                'confirmada' => $dato->confirmada,
+                'idOrden' => $dato->id
             ];
 
             // dd($datosComida);
@@ -108,10 +110,11 @@ class PaginaController extends Controller
 
 
             // Agregar la comida al array correspondiente a la mesa
-            array_push($comidasPorMesa[$mesa], $datosComida);
+            array_push($comidasPorMesa[$mesa], $comidaArray);
         }
         // dd(count($comidasPorMesa));
         if (auth()->user()->admin) {
+
             if (count($comidasPorMesa) < $idUsuario || count($comidasPorMesa) !== 0) {
                 return null;
             } else {
@@ -120,8 +123,13 @@ class PaginaController extends Controller
             }
         } else {
 
-            return
-                $comidasPorMesa[$idUsuario];
+            // dd($comidasPorMesa);
+            if (empty($comidasPorMesa)) {
+                return null;
+            } else {
+                return
+                    $comidasPorMesa[$idUsuario];
+            }
         }
     }
 

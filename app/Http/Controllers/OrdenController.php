@@ -6,13 +6,21 @@ use App\Models\Orden;
 use App\Models\OrdenComida;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Rules\Exists;
 
 class OrdenController extends Controller
 {
 
-    public function mostrarOrden()
+    public function enviar($id)
     {
+        $orden = Orden::find($id);
+        $orden->update(['confirmada' => 1]);
+        return redirect(route('comandas'));
+    }
+
+    public function eliminarPlato($idComanda, $idPlato)
+    {
+        DB::table('Orden_comida')->where('id_orden', $idComanda)->where('id_comida', $idPlato)->delete();
+        return redirect(route('comandas'));
     }
 
     public function crearOrden($usuarioId, $id)
