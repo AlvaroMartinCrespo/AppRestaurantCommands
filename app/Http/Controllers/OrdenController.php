@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 class OrdenController extends Controller
 {
 
+    /**
+     * Se obtiene el id de la comanda y se actualiza cambiando su estado a confirmada.
+     */
     public function enviar($id)
     {
         $orden = Orden::find($id);
@@ -17,6 +20,9 @@ class OrdenController extends Controller
         return redirect(route('comandas'));
     }
 
+    /**
+     * Obteniendo el ud de la orden y el id del plato, podemos eliminar de la tabla orden_comida la comanda una vez este servido.
+     */
     public function eliminarPlato($idComanda, $idPlato)
     {
         DB::table('Orden_comida')->where('id_orden', $idComanda)->where('id_comida', $idPlato)->delete();
@@ -51,11 +57,12 @@ class OrdenController extends Controller
             ->where('orden.user_id', '<>', null)
             ->get();
 
-        // dd($ordenComida);
-
         return $ordenComida;
     }
 
+    /**
+     * Elimina todas las comandas que hay en la tabla.
+     */
     public function eliminarComandas()
     {
         OrdenComida::query()->delete();
@@ -63,6 +70,9 @@ class OrdenController extends Controller
         return redirect('comandas');
     }
 
+    /**
+     * Cambia el estado de la comnada con un id a servido.
+     */
     public function servir($id)
     {
         $orden = Orden::find($id);

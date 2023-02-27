@@ -17,10 +17,10 @@
             @foreach ($entrantes as $entrante)
                 <div
                     class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a class="w-full" href="#">
+                    <div class="w-full">
                         <img class="rounded-t-lg w-full h-56 object-none" src="{{ $entrante->ruta_imagen }}"
                             alt="" />
-                    </a>
+                    </div>
                     <div class="p-5">
                         <span>
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -33,10 +33,14 @@
                         <div class="flex gap-2 items-center">
                             <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{ $entrante->precio }}
                                 €</span>
-                            <a href="{{ route('crearOrden', ['usuarioId' => auth()->user()->id, 'id' => $entrante->id]) }}"
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Añadir
-                            </a>
+                            @if (auth()->user()->admin)
+                            @else
+                                <a href="{{ route('crearOrden', ['usuarioId' => auth()->user()->id, 'id' => $entrante->id]) }}"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Añadir
+                                </a>
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -68,10 +72,14 @@
                         <div class="flex gap-2 items-center">
                             <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{ $pm->precio }}
                                 €</span>
-                            <a href="{{ route('crearOrden', ['usuarioId' => auth()->user()->id, 'id' => $pm->id]) }}"
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Añadir
-                            </a>
+                            @if (auth()->user()->admin)
+                            @else
+                                <a href="{{ route('crearOrden', ['usuarioId' => auth()->user()->id, 'id' => $pm->id]) }}"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Añadir
+                                </a>
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -103,10 +111,14 @@
                         <div class="flex gap-2 items-center">
                             <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{ $sp->precio }}
                                 €</span>
-                            <a href="{{ route('crearOrden', ['usuarioId' => auth()->user()->id, 'id' => $sp->id]) }}"
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Añadir
-                            </a>
+                            @if (auth()->user()->admin)
+                            @else
+                                <a href="{{ route('crearOrden', ['usuarioId' => auth()->user()->id, 'id' => $sp->id]) }}"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Añadir
+                                </a>
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -138,10 +150,14 @@
                         <div class="flex gap-2 items-center">
                             <span class="font-bold tracking-tight text-gray-900 dark:text-white">{{ $p->precio }}
                                 €</span>
-                            <a href="{{ route('crearOrden', ['usuarioId' => auth()->user()->id, 'id' => $p->id]) }}"
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Añadir
-                            </a>
+                            @if (auth()->user()->admin)
+                            @else
+                                <a href="{{ route('crearOrden', ['usuarioId' => auth()->user()->id, 'id' => $p->id]) }}"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Añadir
+                                </a>
+                            @endif
+
                         </div>
                     </div>
                 </div>

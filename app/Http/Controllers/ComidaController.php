@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 class ComidaController extends Controller
 {
 
+    /**
+     * Obtiene los datos del formulario y crea una nueva comida. Retorna la vista del formulario.
+     */
     public function crearComida(Request $request)
     {
         $comida = new Comida();
@@ -18,21 +21,34 @@ class ComidaController extends Controller
         $comida->descripcion = $request->descripcion;
         $comida->precio = $request->precio;
         $comida->save();
+        $comidaTipoComida = new ComidaTipoComida();
+        $comidaTipoComida->id_comida = $comida->id;
+        $comidaTipoComida->id_tipo = $request->tipoComida;
+        $comidaTipoComida->save();
+        return redirect(route('añadirPlato'));
     }
 
-    public function eliminarComida()
+    /**
+     * Eliminar la comida con el id que se haya pasado desde la vista.
+     */
+    public function eliminarComida($id)
     {
-        $idPlato = $_REQUEST['id'];
-        $plato = Comida::find($idPlato);
+        $plato = Comida::find($id);
         $plato->delete();
         return redirect(route('eliminarPlato'));
     }
 
+    /**
+     * Obtiene todas los platos que hay en la tabla.
+     */
     public function obtenerComida()
     {
         return Comida::all();
     }
 
+    /**
+     * Obtiene los platos según el tipo que sean.
+     */
     public function obtenerTipoDeComida($tipoPlato)
     {
         $comidas = DB::table('comida')
@@ -51,6 +67,9 @@ class ComidaController extends Controller
         return $comidaSeleccionada;
     }
 
+    /**
+     * Obtiene el plato por el id.
+     */
     public function obtenerComidaPorId($id)
     {
         $plato = Comida::find($id);

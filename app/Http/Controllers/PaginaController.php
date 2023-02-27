@@ -14,11 +14,22 @@ use Illuminate\Validation\Rules\Exists;
 
 class PaginaController extends Controller
 {
+    /**
+     * Retorna la vista quienes somos.
+     */
     public function quienesSomosPage()
     {
         return view('pagina/quienesSomos');
     }
 
+    // TODO
+    /**
+     * Arreglar el añadir comida
+     */
+
+    /**
+     * Obtenemos los datos de que relacionan cada orden_comida con cada orden, obteniendo asi el id del usuario, el id de la comida (con el que posteriormente obtendremos el plato ya que utilizamos una función del controllador de comida, que mediante el id obtenemos los datos del plato). Guardamos todos los datos en un array asociativo y lo retornamos.
+     */
     public function tratarDatos()
     {
         $orden = new OrdenController();
@@ -30,12 +41,8 @@ class PaginaController extends Controller
             $mesa = $dato->user_id;
             $comidaId = $dato->id_comida;
 
-            // dd($comidaId);
-
             $comida = new ComidaController();
             $datosComida = $comida->obtenerComidaPorId($comidaId);
-
-            // dd($datosComida);
 
             $comidaArray = [
                 'id' => $datosComida->id,
@@ -56,11 +63,12 @@ class PaginaController extends Controller
             // Agregar la comida al array correspondiente a la mesa
             array_push($comidasPorMesa[$mesa], $comidaArray);
         }
-
-        // dd($comidasPorMesa);
         return $comidasPorMesa;
     }
 
+    /**
+     * Obtenemos todos los tipos de comida del controlador y la introducimos en la vista para que sean mostradas.
+     */
     public function homePage()
     {
         $controllerComida = new ComidaController;
@@ -73,6 +81,10 @@ class PaginaController extends Controller
         return view('pagina/home', compact(['entrantes', 'segundoPlato', 'primerPlato', 'postres', 'carrito']));
     }
 
+    /**
+     * Esta función se refiere a la comanda del usuario, la que solo puede ver él.
+     * Obtiene los datos del plato y del usuario respecto de cada orden y se retorna.
+     */
     private function cargarCarrito()
     {
         $idUsuario = Auth::id();
@@ -85,12 +97,8 @@ class PaginaController extends Controller
             $mesa = $dato->user_id;
             $comidaId = $dato->id_comida;
 
-            // dd($comidaId);
-
             $comida = new ComidaController();
             $datosComida = $comida->obtenerComidaPorId($comidaId);
-
-            // dd($comida);
 
             $comidaArray = [
                 'id' => $datosComida->id,
@@ -102,7 +110,6 @@ class PaginaController extends Controller
                 'idOrden' => $dato->id
             ];
 
-            // dd($datosComida);
             // Si la mesa aún no existe en la matriz asociativa, inicializarla como un array vacío
             if (!isset($comidasPorMesa[$mesa])) {
                 $comidasPorMesa[$mesa] = array();
@@ -112,7 +119,8 @@ class PaginaController extends Controller
             // Agregar la comida al array correspondiente a la mesa
             array_push($comidasPorMesa[$mesa], $comidaArray);
         }
-        // dd(count($comidasPorMesa));
+
+        //Si es un admin o si es un usuario normal.
         if (auth()->user()->admin) {
 
             if (count($comidasPorMesa) < $idUsuario || count($comidasPorMesa) !== 0) {
@@ -133,11 +141,17 @@ class PaginaController extends Controller
         }
     }
 
+    /**
+     * Función que retorna la vista añadirPlato.
+     */
     public function añadirPlato()
     {
         return view('pagina/añadirPlato');
     }
 
+    /**
+     * Se obtienen todas las comidas y se insertan en la vista de eliminarPlato.
+     */
     public function eliminarPlato()
     {
         $controllerComida = new ComidaController;
@@ -145,6 +159,9 @@ class PaginaController extends Controller
         return view('pagina/eliminarPlato', compact(['comidas']));
     }
 
+    /**
+     * Obtenemos todas las comandas (datos) y la comanda del usuario que esta registrado (carrito) y las insertamos en la vista para que según el rol de usuario que este registrado se muestre una u otra.
+     */
     public function comandas()
     {
         $datos = $this->tratarDatos();

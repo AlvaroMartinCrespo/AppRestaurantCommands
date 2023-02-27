@@ -43,13 +43,13 @@ Route::controller(PaginaController::class)->group(function () {
     Route::get('quienesSomos', 'quienesSomosPage')->middleware('auth')->name('quienesSomos');
     Route::get('home', 'homePage')->middleware('auth')->name('home');
     Route::get('añadirPlato', 'añadirPlato')->middleware('auth')->name('añadirPlato');
-    Route::get('eliminarPlato', 'eliminarPlato')->middleware('auth')->name('eliminarPlato');
+    Route::get('eliminarPlato/', 'eliminarPlato')->middleware('auth')->name('eliminarPlato');
     Route::get('comandas', 'comandas')->middleware('auth')->name('comandas');
 });
 
 Route::controller(ComidaController::class)->group(function () {
     Route::get('crearComida', 'crearComida')->name('crearComida');
-    Route::get('eliminarComida/', 'eliminarComida')->name('eliminarComida');
+    Route::get('eliminarComida/{id}', 'eliminarComida')->name('eliminarComida');
 });
 
 Route::controller(OrdenController::class)->group(function () {

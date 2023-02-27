@@ -42,8 +42,15 @@
                             <div class="relative inline-block">
                                 <button id="buttonPerfil" type="button" class="focus:outline-none">
                                     <div class="inline-flex items-center">
-                                        <img class="w-10 h-10 rounded-full" src="{{ asset('images/noPhoto.webp') }}"
-                                            alt="Avatar" />
+                                        @if (auth()->user()->admin)
+                                            <img class="w-10 h-10 rounded-full"
+                                                src="https://i.pinimg.com/236x/e5/80/21/e58021120b62c45d0822c4b0aadedcce.jpg"
+                                                alt="Avatar" />
+                                        @else
+                                            <img class="w-10 h-10 rounded-full" src="{{ asset('images/noPhoto.webp') }}"
+                                                alt="Avatar" />
+                                        @endif
+
                                     </div>
                                 </button>
                                 <div id="divPerfil"
