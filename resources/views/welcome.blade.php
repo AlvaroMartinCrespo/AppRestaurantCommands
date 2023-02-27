@@ -4,12 +4,12 @@
 
 @section('content')
 
-    <div class="flex justify-center ">
+    <div class="flex justify-center">
         <div class="w-1/2 h-auto">
-            <img class="object-none h-screen"
+            <img class="object-none h-full"
                 src="https://static-sevilla.abc.es/media/gurmesevilla/2012/01/comida-rapida-casera.jpg" alt="comida">
         </div>
-        <div class="w-1/2 flex justify-center flex-col items-center p-5 h-screen m-4">
+        <div class="w-1/2 flex justify-center flex-col items-center p-5 h-screen">
             <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Elige
                 y Pide</h1>
             <p class=" text-justify p-8">
