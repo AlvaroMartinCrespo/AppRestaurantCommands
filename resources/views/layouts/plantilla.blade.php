@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,68 +8,13 @@
     <title>@yield('title')</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 </head>
+
 <body>
 
     @yield('content')
 
 
 </body>
-<script>
-
-    listerners();
-
-    function listerners(){
- 
-        const carrito = document.querySelector('#carrito');
-        const button = document.querySelector("button");
-        const popup = document.querySelector("#divPerfil");
-        const body = document.querySelector('body')
-
-        // Mostrar la ventana emergente al hacer hover sobre el botón
-        button.addEventListener("click", mostrarPerfil, false);
-
-        // Ocultar la ventana emergente al sacar el cursor del botón
-        body.addEventListener("click", ocultarPerfil, true);
-
-        carrito.addEventListener('click',mostrarCarrito, false);
-
-        body.addEventListener('click',ocultarCarrito, true);
-
-    }
 
 
-    function mostrarCarrito(){
-        const contenidoCarrito = document.querySelector('#contentCarrito');
-        contenidoCarrito.classList.remove('hidden')
-    }
-
-    function ocultarCarrito(e){
-        const contenidoCarrito = document.querySelector("#contentCarrito");
-        if(e.target.id !== 'contentCarrito'){
-            contenidoCarrito.classList.add('hidden');
-        }
-    }
-
-    //Funciones para controlar que aparezca y desaparezca la ventana flotando de perfil
-
-    /**
-     * Se le elimina la clase hidden por lo tanto aparece.
-    */
-    function mostrarPerfil(){
-        const popup = document.querySelector("#divPerfil");
-        popup.classList.remove('hidden');
-    }
-
-    /**
-     * Se le añade al popup la clase hidden por lo tanto desaparece
-    */
-    function ocultarPerfil(e){
-        const popup = document.querySelector("#divPerfil");
-        if(e.target.id !== 'buttonPerfil'){
-            popup.classList.add('hidden');
-        }
-    }
-
-
-</script>
 </html>
