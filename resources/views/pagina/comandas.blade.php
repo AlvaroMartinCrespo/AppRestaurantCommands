@@ -22,6 +22,7 @@
         <div class=" grid grid-cols-3 m-5 gap-6 justify-items-center">
 
             @foreach ($datos as $clave => $valor)
+                {{-- {{ dd($valor[0]) }} --}}
                 {{-- {{ dd($datos) }} --}}
                 <div
                     class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg hover:shadow-2xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">
@@ -33,7 +34,7 @@
                         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
 
                             @foreach ($valor as $comida)
-                                {{-- {{ dd($comida) }} --}}
+                                {{-- {{ dd($valor) }} --}}
                                 <li class="py-3 sm:py-4">
                                     <div class="flex items-center space-x-4">
                                         <div class="flex-shrink-0">
@@ -64,21 +65,21 @@
                                             <div class="bg-red-500 rounded-full w-3 h-3"></div>No servido</p>
                                         </div>
                                     @endif
-
+                                    @if ($comida['confirmada'])
+                                        <div class="flex justify-center gap-4 items-center text-white">
+                                            <p class="mt-5 mb-5 ">
+                                            <div class="bg-green-500 rounded-full w-3 h-3"></div>Enviada</p>
+                                        </div>
+                                    @else
+                                        <div class="flex justify-center gap-4 items-center text-white">
+                                            <p class="mt-5 mb-5 ">
+                                            <div class="bg-red-500 rounded-full w-3 h-3"></div>No enviada</p>
+                                        </div>
+                                    @endif
 
                                 </li>
                             @endforeach
-                            @if (reset($datos)[0]['confirmada'])
-                                <div class="flex justify-center gap-4 items-center text-white">
-                                    <p class="mt-5 mb-5 ">
-                                    <div class="bg-green-500 rounded-full w-4 h-4"></div>Enviada</p>
-                                </div>
-                            @else
-                                <div class="flex justify-center gap-4 items-center text-white">
-                                    <p class="mt-5 mb-5 ">
-                                    <div class="bg-red-500 rounded-full w-4 h-4"></div>No enviada</p>
-                                </div>
-                            @endif
+
                         </ul>
                     </div>
                 </div>
@@ -98,6 +99,7 @@
                     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
                         @if (!empty($carritoUsuario))
                             @foreach ($carritoUsuario as $plato)
+                                {{-- {{ dd($plato) }} --}}
                                 <li class="py-3 sm:py-4">
                                     <div class="flex items-center space-x-4">
                                         <div class="flex-shrink-0">
@@ -116,6 +118,10 @@
                                             <a
                                                 href="{{ route('eliminarPlatoComanda', ['idComanda' => $plato['idOrden'], 'idPlato' => $plato['id']]) }}">Eliminar</a>
                                         </div>
+                                        <div class="flex justify-center gap-4 items-center">
+                                            <a href="{{ route('enviarOrden', ['id' => $plato['idOrden']]) }}"
+                                                class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4 mb-4">Enviar</a>
+                                        </div>
                                     </div>
                                     @if ($plato['servida'])
                                         <div class="flex justify-center gap-4 items-center text-white">
@@ -128,25 +134,20 @@
                                             <div class="bg-red-500 rounded-full w-3 h-3"></div>No servido</p>
                                         </div>
                                     @endif
+                                    @if ($plato['confirmada'])
+                                        <div class="flex justify-center gap-4 items-center text-white">
+                                            <p class="mt-5 mb-5 ">
+                                            <div class="bg-green-500 rounded-full w-3 h-3"></div>Enviada</p>
+                                        </div>
+                                    @else
+                                        <div class="flex justify-center gap-4 items-center text-white">
+                                            <p class="mt-5 mb-5 ">
+                                            <div class="bg-red-500 rounded-full w-3 h-3"></div>No enviada</p>
+                                        </div>
+                                    @endif
 
                                 </li>
                             @endforeach
-                            <div class="flex justify-center gap-4 items-center">
-                                <a href="{{ route('enviarOrden', ['id' => $carritoUsuario[0]['idOrden']]) }}"
-                                    class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4 mb-4">Enviar</a>
-                            </div>
-
-                            @if ($carritoUsuario[0]['confirmada'])
-                                <div class="flex justify-center gap-4 items-center text-white">
-                                    <p class="mt-5 mb-5 ">
-                                    <div class="bg-green-500 rounded-full w-4 h-4"></div>Enviada</p>
-                                </div>
-                            @else
-                                <div class="flex justify-center gap-4 items-center text-white">
-                                    <p class="mt-5 mb-5 ">
-                                    <div class="bg-red-500 rounded-full w-4 h-4"></div>No enviada</p>
-                                </div>
-                            @endif
                         @endif
 
 

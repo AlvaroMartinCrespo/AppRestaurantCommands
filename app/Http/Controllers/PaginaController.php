@@ -167,7 +167,6 @@ class PaginaController extends Controller
         $datos = $this->tratarDatos();
         $carritoUsuario = $this->cargarCarrito();
         // dd($datos);
-        // dd($datos);
         //Tenemos que obtener la comida de los id y almacenarla en una variable.
         return view('pagina/comandas', compact(['datos', 'carritoUsuario']));
     }
